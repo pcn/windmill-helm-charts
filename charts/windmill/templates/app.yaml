@@ -29,6 +29,9 @@ spec:
 {{ toYaml . | indent 8 }}       
 {{- end }}  
     spec:
+      {{ if windmill.serviceAccountName  }}
+      serviceAccountName: {{ windmill.serviceAccountName }}
+      {{ end }}
       terminationGracePeriodSeconds: 40
       containers:
       - name: windmill-app
